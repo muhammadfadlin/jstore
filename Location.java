@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class DatabaseItem here.
+ * Sebuah class untuk menentukan lokasi dari suatu tempat
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Fadli
+ * @version 28/02/2019
  */
 public class Location
 {
@@ -12,6 +12,14 @@ public class Location
     private String description;
     private String city;
 
+    /**
+     * Constructor for objects of class Location
+     * @param city is the first paramter to Location method
+     * @param province is the second paramter to Location method
+     * @param description is the third paramter to Location method
+     * @param price is the fourth paramter to Location method
+     */
+  
     public Location(String city, String province, String description)
     {    
         this.city=city;
@@ -19,38 +27,66 @@ public class Location
         this.description=description;
     }
     
-    
+     /**
+     * mengembalikan nilai provinsi
+     * @return nilai province
+     */
     public String getProvince()
     {     
         return province;
     }
     
+      /**
+     * mengembalikan nilai kota
+     * @return nilai city
+     */
     public String getCity()
     {     
         return city;
     }
     
+    
+      /**
+     * mengembalikan nilai deskripsi
+     * @return nilai description
+     */
     public String getDescription()
     {     
         return description;
     }
     
-    
+      /**
+     * melakukan set nilai baru pada provinsi
+     * @param nilai province mengganti province
+     */
     public void setProvince(String province)
     {     
         this.province=province;
     }
     
+    
+    /**
+     * melakukan set nilai baru pada kota
+     * @param nilai city mengganti city
+     */
     public void setCity(String city)
     {     
         this.city=city;
     }
     
+    /**
+     * melakukan set nilai baru pada deskripsi
+     * @param nilai description mengganti description
+     */
     public void setDescription(String description)
     {     
         this.description=description;
     }
     
+    /**
+     * melakukan print nilai provinsi
+     * 
+     */
     public void printData()
     {
         System.out.println(province);

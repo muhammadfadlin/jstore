@@ -11,16 +11,30 @@ public class DatabaseItem
     private String[] listItem;
     private Item item;
 
+     /**
+     * menambah item
+     * @return nilai false
+     * @param nilai item
+     */
     public boolean addItem(Item item)
     {
         return false;
     }
     
+     /**
+     * menghapus item
+     * @return nilai false
+     * @param nilai item
+     */
     public boolean removeItem(Item item)
     {     
         return false;
     }
     
+     /**
+     * mengembalikan list database
+     * @return nilai listItem
+     */
     public String[] getItemDatabase()
     {     
         return listItem;
