@@ -8,17 +8,23 @@
 public class DatabaseItem
 {
     // instance variables - replace the example below with your own
-    private String[] listitem;
+    private String[] listItem;
+    private Item item;
 
-    public void addItem()
-    {     
+    public boolean addItem(Item item)
+    {
+        return false;
     }
     
-    public void removeItem()
+    public boolean removeItem(Item item)
     {     
+        return false;
     }
     
-    public void getItemDatabase()
+    public String[] getItemDatabase()
     {     
+        return listItem;
     }
+    
+    
 }
