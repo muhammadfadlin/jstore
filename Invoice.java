@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class Invoice here.
+ * Sebuah class dengan informasi mengenai semua invoice ketika transaksi dilakukan
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Fadli
+ * @version 28/02/2019
+ * @since 28/02/2019
  */
 public class Invoice
 {
@@ -15,6 +16,10 @@ public class Invoice
 
     /**
      * Constructor for objects of class Invoice
+     * @param id is the first paramter to Invoice method
+     * @param item is the second paramter to Invoice method
+     * @param date is the third paramter to Invoice method
+     * @param totalPrice is the fourth paramter to Invoice method
      */
     public Invoice(int id, Item item, String date, int totalPrice)
     {

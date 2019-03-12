@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class Supplier here.
+ * Sebuah class untuk memasukkan data supplier.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Fadli
+ * @version 28/02/2019
+ * @since 28/02/2019
  */
 public class Supplier
 {
@@ -15,9 +16,15 @@ public class Supplier
     private Location location;
 
 
-    /**
+   /**
      * Constructor for objects of class Supplier
+     * @param id is the first paramter to Supplier method
+     * @param name is the second paramter to Supplier method
+     * @param email is the third paramter to Supplier method
+     * @param phoneNumber is the fourth paramter to Supplier method
+     * @param location is the fifth paramter to Supplier method
      */
+    
     public Supplier(int id, String name, String email, String phoneNumber, Location location)
     {
         this.id=id;

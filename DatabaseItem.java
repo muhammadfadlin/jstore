@@ -1,11 +1,13 @@
 
+
 /**
- * Write a description of class DatabaseItem here.
+ * Sebuah class sebagai tempat penyimpanan data-data semua item
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Fadli
+ * @version 28/02/2019
+ * @since 28/02/2019
  */
-public class DatabaseItem
+static public class DatabaseItem
 {
     // instance variables - replace the example below with your own
     private String[] listItem;

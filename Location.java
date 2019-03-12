@@ -1,9 +1,10 @@
 
 /**
- * Sebuah class untuk menentukan lokasi dari suatu tempat
+ * Sebuah class dengan informasi mengenai lokasi.
  *
  * @author Muhammad Fadli
  * @version 28/02/2019
+ * @since 28/02/2019
  */
 public class Location
 {
@@ -91,4 +92,5 @@ public class Location
     {
         System.out.println(province);
     }
+    
 }

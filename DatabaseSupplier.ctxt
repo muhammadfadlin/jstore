@@ -1,14 +1,18 @@
 #BlueJ class context
 comment0.target=DatabaseSupplier
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseItem\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Sebuah\ class\ dengan\ informasi\ mengenai\ data-data\ supplier\r\n\r\n\ @author\ Muhammad\ Fadli\r\n\ @version\ 28/02/2019\r\n\ @since\ 28/02/2019\r\n
 comment1.params=supplier
 comment1.target=boolean\ addSupplier(Supplier)
+comment1.text=\r\n\ menambah\ supplier\r\n\ @return\ nilai\ false\r\n\ @param\ nilai\ supplier\r\n
 comment2.params=supplier
 comment2.target=void\ removeSupplier(Supplier)
+comment2.text=\r\n\ menghapus\ supplier\r\n\ @return\ nilai\ false\r\n\ @param\ nilai\ supplier\r\n
 comment3.params=
 comment3.target=Supplier\ getSupplier()
+comment3.text=\r\n\ mengembalikan\ nilai\ supplier\r\n\ @return\ nilai\ supplier\r\n
 comment4.params=
 comment4.target=java.lang.String[]\ getListSupplier()
+comment4.text=\r\n\ mengembalikan\ nilai\ listsupplier\r\n\ @return\ nilai\ listSupplier\r\n
 comment5.params=
 comment5.target=void\ printData()
 numComments=6

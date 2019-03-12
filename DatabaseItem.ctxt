@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=DatabaseItem
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ DatabaseItem\ here.\r\n\r\n\ @author\ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Sebuah\ class\ sebagai\ tempat\ penyimpanan\ data-data\ semua\ item\r\n\r\n\ @author\ Muhammad\ Fadli\r\n\ @version\ 28/02/2019\r\n\ @since\ 28/02/2019\r\n
 comment1.params=item
 comment1.target=boolean\ addItem(Item)
+comment1.text=\r\n\ menambah\ item\r\n\ @return\ nilai\ false\r\n\ @param\ nilai\ item\r\n
 comment2.params=item
 comment2.target=boolean\ removeItem(Item)
+comment2.text=\r\n\ menghapus\ item\r\n\ @return\ nilai\ false\r\n\ @param\ nilai\ item\r\n
 comment3.params=
 comment3.target=java.lang.String[]\ getItemDatabase()
+comment3.text=\r\n\ mengembalikan\ list\ database\r\n\ @return\ nilai\ listItem\r\n
 numComments=4
