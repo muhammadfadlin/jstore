@@ -21,12 +21,9 @@ public class JStore
     {
         Location loc1 = new Location("Kabanjahe","Sumatera Utara","Sebuah Kota");
         Supplier supp1 = new Supplier (1001,"Muhammad Fadli","muhammadfadli27@gmail.com","087799007979",loc1);
-        Item item1 = new Item (120,"Laptop",10,100000,"Elektronik",supp1);
-        Invoice invo1 = new Invoice (1,item1,"27/08/2019",200000);
         supp1.printData();
         supp1.setName("Khairi");
         supp1.printData();
-        item1.printData();
         
     }
 }

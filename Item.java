@@ -18,8 +18,9 @@ public class Item
      */
     private int stock;
     private int price;
-    private String category;
+    private ItemCategory category;
     private Supplier supplier;
+    private ItemStatus status;
     
 
     /**
@@ -32,7 +33,7 @@ public class Item
      * @param supplier is the sixth paramter to Item method
      */
   
-    public Item(int id,String name,int stock,int price, String category, Supplier supplier)
+    public Item(int id,String name,int stock,ItemStatus status, int price, Supplier supplier, ItemCategory category)
     {
       this.id=id;
       this.name=name;
@@ -82,9 +83,14 @@ public class Item
      * mengembalikan category
      * @return nilai category
      */
-    public String getCategory()
+    public ItemCategory getCategory()
     {
         return category;
+    }
+    
+     public ItemStatus getStatus()
+    {
+        return status;
     }
     
     /**
@@ -135,9 +141,14 @@ public class Item
      * melakukan set nilai baru pada kategori
      * @param nilai category mengganti category
      */
-    public void setCategory(String category)
+    public void setCategory(ItemCategory category)
     {
         this.category=category;
+    }
+    
+     public void setStatus(ItemStatus status)
+    {
+        this.status=status;
     }
     
     /**
@@ -155,6 +166,12 @@ public class Item
      */
     public void printData()
     {
-        System.out.println(name);
+        System.out.println("=====ITEM=====");
+        System.out.println("ID:"+ getId());
+        System.out.println("Name:"+ getName());
+        System.out.println("Stock:"+ getStock());
+        System.out.println("Category:"+ getCategory().name());
+        System.out.println("Status:"+ getStatus().name());
+        System.out.println("Supplier:"+ getSupplier().getName());
     }
 }

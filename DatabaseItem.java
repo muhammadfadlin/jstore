@@ -7,19 +7,20 @@
  * @version 28/02/2019
  * @since 28/02/2019
  */
-static public class DatabaseItem
+public class DatabaseItem
 {
     // instance variables - replace the example below with your own
     private String[] listItem;
-    private Item item;
+    public static Item itemDB;
 
      /**
      * menambah item
      * @return nilai false
      * @param nilai item
      */
-    public boolean addItem(Item item)
+    public static boolean addItem(Item item)
     {
+        itemDB = item;
         return false;
     }
     
@@ -28,9 +29,15 @@ static public class DatabaseItem
      * @return nilai false
      * @param nilai item
      */
-    public boolean removeItem(Item item)
+    public static boolean removeItem(Item item)
     {     
+        itemDB = null;
         return false;
+    }
+    
+    public Item getItem()
+    {     
+        return itemDB;
     }
     
      /**

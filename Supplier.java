@@ -88,7 +88,13 @@ public class Supplier
     
      public void printData()
     {
-        System.out.println(name);
+        
+        System.out.println("=====SUPPLIER=====");
+        System.out.println("ID:"+ getId());
+        System.out.println("Nama:"+ getName());
+        System.out.println("Email:"+ getEmail());
+        System.out.println("Nomor Telepon:"+ getPhoneNumber());
+        System.out.println("Lokasi:"+ getLocation().getCity());
     }
     
 }

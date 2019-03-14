@@ -90,7 +90,11 @@ public class Location
      */
     public void printData()
     {
-        System.out.println(province);
+        
+        System.out.println("=====LOCATION=====");
+        System.out.println("Provinsi:"+ getProvince());
+        System.out.println("Kota:"+ getCity());
+        System.out.println("Deskripsi:"+ getDescription());
     }
     
 }

@@ -6,7 +6,7 @@
  * @version 28/02/2019
  * @since 28/02/2019
  */
-static public class DatabaseSupplier
+public class DatabaseSupplier
 {
     // instance variables - replace the example below with your own
     private String[] listSupplier;
