@@ -16,79 +16,92 @@ public class Transaction
         Item item = new Item(12,"Laptop",10,ItemStatus.New,1000000,supplier,ItemCategory.Electronics);
         db.addItem(item);
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        Invoice invoice = new Invoice(10,item,date,item.getPrice());
         item.setStatus(ItemStatus.New);
-        invoice.setInvoiceStatus(InvoiceStatus.Paid);
+        Invoice bp = new Buy_Paid(20,item,date,10,item.getPrice());
         
         System.out.println("=====Order New Item=====");
         item.printData();
-        invoice.printData();
- 
+        bp.printData();
+        if(bp instanceof Sell_Paid){
+        System.out.println("Benar Invoice Type adalah Sell_Paid");
+        }else{
+        System.out.println("Salah Invoice Type bukan Sell_Paid");
+        }
     }
     
        public void orderSecondItem(Supplier supplier){
         Item item = new Item(12,"Laptop",10,ItemStatus.Second,1000000,supplier,ItemCategory.Electronics);
         db.addItem(item);
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        Invoice invoice = new Invoice(10,item,date,item.getPrice());
+       
         item.setStatus(ItemStatus.Second);
-        invoice.setInvoiceStatus(InvoiceStatus.Paid);
+        Invoice bp = new Buy_Paid(20,item,date,10,item.getPrice());
         
         System.out.println("=====Order Second Item=====");
         item.printData();
-        invoice.printData();
+        bp.printData();
+         if(bp instanceof Sell_Paid){
+        System.out.println("Benar Invoice Type adalah Sell_Paid");
+        }else{
+        System.out.println("Salah Invoice Type bukan Sell_Paid");
+        }
     }
     
        public void orderRefurbishedItem(Supplier supplier){
         Item item = new Item(12,"Laptop",10,ItemStatus.Refurbished,1000000,supplier,ItemCategory.Electronics);
         db.addItem(item);
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        Invoice invoice = new Invoice(10,item,date,item.getPrice());
+      
         item.setStatus(ItemStatus.Refurbished);
-        invoice.setInvoiceStatus(InvoiceStatus.Paid);
+        Invoice bp = new Buy_Paid(20,item,date,10,item.getPrice());
         
         System.out.println("=====Order Refurbished Item=====");
         item.printData();
-        invoice.printData();
+        bp.printData();
+         if(bp instanceof Sell_Paid){
+        System.out.println("Benar Invoice Type adalah Sell_Paid");
+        }else{
+        System.out.println("Salah Invoice Type bukan Sell_Paid");
+        }
  
     }
     
     public void sellItemPaid(Item item){
    
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        Invoice invoice = new Invoice(10,item,date,item.getPrice());
-        invoice.setInvoiceStatus(InvoiceStatus.Paid);
+  
         item.setStatus(ItemStatus.Sold);
+        Invoice bp = new Sell_Paid(20,item,date,10,item.getPrice());
         
         System.out.println("=====Sell Item Paid=====");
         item.printData();
-        invoice.printData();
+        bp.printData();
         
     }
     
        public void sellItemUnpaid(Item item){
            
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        Invoice invoice = new Invoice(10,item,date,item.getPrice());
-        invoice.setInvoiceStatus(InvoiceStatus.Unpaid);
+        
         item.setStatus(ItemStatus.Sold);
+        Invoice bp = new Sell_Unpaid(20,item,date,10,item.getPrice(),"20-08-2090");
         
         System.out.println("=====Sell Item Unpaid=====");
         item.printData();
-        invoice.printData();
+        bp.printData();
         
     }
     
        public void sellItemInstallment(Item item){
         
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        Invoice invoice = new Invoice(10,item,date,item.getPrice());
-        invoice.setInvoiceStatus(InvoiceStatus.Installment);
+       
         item.setStatus(ItemStatus.Sold);
-        
+        Invoice bp = new Sell_Installment(20,item,date,10,item.getPrice(),50);
+
         System.out.println("=====Sell Item Installment=====");
         item.printData();
-        invoice.printData();
+        bp.printData();
     }
     
 }

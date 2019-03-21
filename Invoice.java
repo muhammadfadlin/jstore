@@ -6,15 +6,16 @@
  * @version 28/02/2019
  * @since 28/02/2019
  */
-public class Invoice
+public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
     private Item item;
     private String date;
-    private int totalPrice;
+    protected int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
+    private InvoiceType type;
 
     /**
      * Constructor for objects of class Invoice
@@ -23,7 +24,7 @@ public class Invoice
      * @param date is the third paramter to Invoice method
      * @param totalPrice is the fourth paramter to Invoice method
      */
-    public Invoice(int id, Item item, String date, int totalPrice)
+    public Invoice(int id, Item item, String date,int totalItem, int totalPrice)
     {
         this.id=id;
         this.item=item;
@@ -79,6 +80,12 @@ public class Invoice
         return status;
     }
     
+    public InvoiceType getInvoiceType()
+    {
+        return type;
+    }
+    
+    
     /**
      * melakukan set nilai baru pada ID
      * @param nila id mengganti id
@@ -130,14 +137,7 @@ public class Invoice
      * melakukan print nilai totalharga
      * 
      */
-     public void printData()
-    {
-        System.out.println("=====INVOICE=====");
-        System.out.println("ID:"+ getId());
-        System.out.println("Date:"+ getDate());
-        System.out.println("Item:"+ getItem().getName());
-        System.out.println("Total Item:"+ getTotalItem());
-        System.out.println("Total Price:"+ getTotalPrice());
-        System.out.println("Status:"+ getInvoiceStatus().name());
-    }
+    
+    public abstract void  printData();
+     
 }
