@@ -10,6 +10,6 @@ comment2.text=\r\n\ menghapus\ item\r\n\ @return\ nilai\ false\r\n\ @param\ nila
 comment3.params=
 comment3.target=Item\ getItem()
 comment4.params=
-comment4.target=java.lang.String[]\ getItemDatabase()
+comment4.target=Item[]\ getItemDatabase()
 comment4.text=\r\n\ mengembalikan\ list\ database\r\n\ @return\ nilai\ listItem\r\n
 numComments=5

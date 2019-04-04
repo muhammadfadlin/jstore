@@ -97,4 +97,13 @@ public class Supplier
         System.out.println("Lokasi:"+ getLocation().getCity());
     }
     
+     public String toString()
+    {
+    return "=====SUPPLIER=====" + "\n"+
+    "ID = \n" +  this.getId() + "\n" + 
+    "Nama = " + this.getName() + "\n" +
+    "Email = " + this.getEmail() + "\n" +
+    "Nomor Telepon = " + this.getPhoneNumber() + "\n" +
+    "Lokasi = "  + this.getLocation().getCity() + "\n";
+    }
 }

@@ -17,7 +17,7 @@ public class Transaction
         db.addItem(item);
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         item.setStatus(ItemStatus.New);
-        Invoice bp = new Buy_Paid(20,item,date,10,item.getPrice());
+        Invoice bp = new Buy_Paid(20,item,10);
         
         System.out.println("=====Order New Item=====");
         item.printData();
@@ -35,7 +35,7 @@ public class Transaction
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
        
         item.setStatus(ItemStatus.Second);
-        Invoice bp = new Buy_Paid(20,item,date,10,item.getPrice());
+        Invoice bp = new Buy_Paid(20,item,10);
         
         System.out.println("=====Order Second Item=====");
         item.printData();
@@ -53,7 +53,7 @@ public class Transaction
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
       
         item.setStatus(ItemStatus.Refurbished);
-        Invoice bp = new Buy_Paid(20,item,date,10,item.getPrice());
+        Invoice bp = new Buy_Paid(20,item,10);
         
         System.out.println("=====Order Refurbished Item=====");
         item.printData();
@@ -66,12 +66,12 @@ public class Transaction
  
     }
     
-    public void sellItemPaid(Item item){
+    public void sellItemPaid(Item item, Customer customer){
    
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-  
+        
         item.setStatus(ItemStatus.Sold);
-        Invoice bp = new Sell_Paid(20,item,date,10,item.getPrice());
+        Invoice bp = new Sell_Paid(20,item,10,customer);
         
         System.out.println("=====Sell Item Paid=====");
         item.printData();
@@ -79,12 +79,12 @@ public class Transaction
         
     }
     
-       public void sellItemUnpaid(Item item){
+       public void sellItemUnpaid(Item item, Customer customer){
            
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         
         item.setStatus(ItemStatus.Sold);
-        Invoice bp = new Sell_Unpaid(20,item,date,10,item.getPrice(),"20-08-2090");
+        Invoice bp = new Sell_Unpaid(20,item,10, customer);
         
         System.out.println("=====Sell Item Unpaid=====");
         item.printData();
@@ -92,12 +92,12 @@ public class Transaction
         
     }
     
-       public void sellItemInstallment(Item item){
+       public void sellItemInstallment(Item item, Customer customer){
         
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
        
         item.setStatus(ItemStatus.Sold);
-        Invoice bp = new Sell_Installment(20,item,date,10,item.getPrice(),50);
+        Invoice bp = new Sell_Installment(20,item,10,10,customer);
 
         System.out.println("=====Sell Item Installment=====");
         item.printData();

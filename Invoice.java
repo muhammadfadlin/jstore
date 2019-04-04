@@ -1,4 +1,7 @@
-
+import java.util.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.text.SimpleDateFormat;
 /**
  * Sebuah class dengan informasi mengenai semua invoice ketika transaksi dilakukan
  *
@@ -11,8 +14,8 @@ public abstract class Invoice
     // instance variables - replace the example below with your own
     private int id;
     private Item item;
-    private String date;
-    protected int totalPrice;
+    private Calendar date = new GregorianCalendar().getInstance();
+    private int totalPrice;
     private int totalItem;
     private InvoiceStatus status;
     private InvoiceType type;
@@ -24,13 +27,12 @@ public abstract class Invoice
      * @param date is the third paramter to Invoice method
      * @param totalPrice is the fourth paramter to Invoice method
      */
-    public Invoice(int id, Item item, String date,int totalItem, int totalPrice)
+    public Invoice(int id, Item item,int totalItem)
     {
         this.id=id;
         this.item=item;
-        this.date=date;
-        this.totalPrice=totalPrice;
-        
+        this.totalItem=totalItem;
+        setTotalPrice(totalItem * item.getPrice());      
     }
 
       /**
@@ -56,7 +58,7 @@ public abstract class Invoice
      * mengembalikan nilai tanggal
      * @return nilai date
      */
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -109,7 +111,7 @@ public abstract class Invoice
      * melakukan set nilai baru pada tanggal
      * @param nilai date mengganti date
      */
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date=date;
     }
@@ -133,11 +135,15 @@ public abstract class Invoice
         this.status=status;
     }
     
+    public String toString(){
+        return "";
+    }
+    
        /**
      * melakukan print nilai totalharga
      * 
      */
     
-    public abstract void  printData();
+    public abstract void printData();
      
 }

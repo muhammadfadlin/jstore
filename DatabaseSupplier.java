@@ -9,7 +9,7 @@
 public class DatabaseSupplier
 {
     // instance variables - replace the example below with your own
-    private String[] listSupplier;
+    private Supplier[] listSupplier;
     private Supplier supplier;
 
      /**
@@ -45,7 +45,7 @@ public class DatabaseSupplier
      * mengembalikan nilai listsupplier
      * @return nilai listSupplier
      */
-    public String[] getListSupplier()
+    public Supplier[] getListSupplier()
     {     
         return listSupplier;
     }

@@ -97,4 +97,11 @@ public class Location
         System.out.println("Deskripsi:"+ getDescription());
     }
     
+    public String toString()
+    {
+    return "=====LOCATION=====" + "\n"+
+    "Provinsi = \n" +  this.getProvince() + "\n" + 
+    "Kota = " + this.getCity() + "\n" +
+    "Deskripsi = "  + this.getDescription() + "\n";
+    }
 }

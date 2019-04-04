@@ -1,4 +1,4 @@
-
+import java.util.Calendar;
 /**
  * Write a description of class Sell_Unpaid here.
  *
@@ -10,12 +10,14 @@ public class Sell_Unpaid extends Invoice
     // instance variables - replace the example below with your own
     private InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
-    private String dueDate;
+    private Calendar dueDate;
+    private Customer customer;
 
 
-    public Sell_Unpaid(int id, Item item, String date,int totalItem, int totalPrice,String dueDate)
+    public Sell_Unpaid(int id,Item item, int totalItem, Customer customer)
     {
-        super(id,item,date,totalItem,totalPrice);
+        super(id,item,totalItem);
+	dueDate.add(Calendar.DAY_OF_MONTH,1);
     }
 
     public InvoiceStatus getInvoiceStatus(){
@@ -26,8 +28,20 @@ public class Sell_Unpaid extends Invoice
         return INVOICE_TYPE;
     }
     
-    public String getDueDate(){
+    public Customer getCustomer(){
+        return customer;
+    }
+    
+    public Calendar getDueDate(){
         return dueDate;
+    }
+    
+    public void setCustomer(Customer customer){
+        this.customer = customer;
+    }
+    
+    public void setDueDate(Calendar dueDate){
+        this.dueDate = dueDate;
     }
     
     public void printData(){
@@ -41,4 +55,19 @@ public class Sell_Unpaid extends Invoice
         System.out.println("Due Date :"+ getDueDate());
     }
     
+    public String toString(){
+        return "ID = \n" + + this.getId() + "\n" + 
+    "Item = " + this.getItem().getName() + "\n" +
+    "Amount = "  + this.getTotalItem() + "\n" +
+    "Buy date = " + this.getDate() + "\n" +
+    "Price = " + this.getItem().getPrice() + "\n" +
+    "Price total = " + this.getTotalPrice() + "\n" +
+    "Supplier ID = " + this.getItem().getId() + "\n" +
+    "Supplier name = " + this.getItem().getName() + "\n" +
+    "Customer ID = " + this.customer.getId() + "\n" +
+    "Customer name = " + this.customer.getName() + "\n" +
+    "Status = " + InvoiceStatus.Unpaid + "\n" + 
+    "Due Date= " + getDueDate() + "\n" +
+    "Sell Success\n";
+    }
 }
