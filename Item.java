@@ -174,4 +174,15 @@ public class Item
         System.out.println("Status:"+ getStatus().name());
         System.out.println("Supplier:"+ getSupplier().getName());
     }
+    
+    public String toString()
+    {
+    return "=====ITEM=====" + "\n"+
+    "ID = \n" +  this.getId() + "\n" + 
+    "Nama = " + this.getName() + "\n" +
+    "Stock = " + this.getStock() + "\n" +
+    "Category = " + this.getCategory().name() + "\n" +
+    "Status = " + this.getStatus().name() + "\n" +
+    "Supplier = "  + this.getSupplier().getName() + "\n";
+    }
 }

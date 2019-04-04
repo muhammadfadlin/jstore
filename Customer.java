@@ -54,7 +54,7 @@ public class Customer
     }
     
     public Calendar getBirthDate(){
-	birthDate.add(Calendar.DAY_OF_MONTH,1);
+	birthDate.add(Calendar.DAY_OF_MONTH,-1);
         return birthDate;
     }
     
@@ -95,8 +95,13 @@ public class Customer
         Calendar birthDate = new GregorianCalendar(year,month,dayOfMonth);
     } 
     
-    public String toString(){
-        return "";
+    public String toString()
+    {
+    return "=====CUSTOMER=====" + "\n"+
+    "Nama = " + this.getName() + "\n" +
+    "Email = " + this.getEmail() + "\n" +
+    "ID = " + this.getId() + "\n" +
+    "BirthDate = "  + this.getBirthDate() + "\n";
     }
     
 }
