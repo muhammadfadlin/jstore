@@ -9,10 +9,9 @@ public enum InvoiceType
 {
     Buy,Sell;
     
-    public String toString()
-{
-    return "";   
-}
+    public String toString(){
+        return name();
+    }
 
 }
 

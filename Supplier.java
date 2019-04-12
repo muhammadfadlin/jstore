@@ -25,9 +25,9 @@ public class Supplier
      * @param location is the fifth paramter to Supplier method
      */
     
-    public Supplier(int id, String name, String email, String phoneNumber, Location location)
+    public Supplier(String name, String email, String phoneNumber, Location location)
     {
-        this.id=id;
+        id = DatabaseInvoice.getLastInvoiceID()+1;
         this.name=name;
         this.email=email;
         this.phoneNumber=phoneNumber;

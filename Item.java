@@ -33,9 +33,9 @@ public class Item
      * @param supplier is the sixth paramter to Item method
      */
   
-    public Item(int id,String name,int stock,ItemStatus status, int price, Supplier supplier, ItemCategory category)
+    public Item(String name,int stock,ItemStatus status, int price, Supplier supplier, ItemCategory category)
     {
-      this.id=id;
+      id = DatabaseInvoice.getLastInvoiceID()+1;
       this.name=name;
       this.stock=stock;
       this.price=price;

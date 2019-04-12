@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * Write a description of class Transaction here.
  *
@@ -9,99 +10,86 @@ import java.text.SimpleDateFormat;
 
 public class Transaction
 {
-    // instance variables - replace the example below with your own
-      DatabaseItem db = new DatabaseItem();
-      
-    public void orderNewItem(Supplier supplier){
-        Item item = new Item(12,"Laptop",10,ItemStatus.New,1000000,supplier,ItemCategory.Electronics);
-        db.addItem(item);
+    
+    public static void orderNewItem(Item item){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        DatabaseItem.addItem(item);
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         item.setStatus(ItemStatus.New);
-        Invoice bp = new Buy_Paid(20,item,10);
-        
-        System.out.println("=====Order New Item=====");
-        item.printData();
-        bp.printData();
-        if(bp instanceof Sell_Paid){
-        System.out.println("Benar Invoice Type adalah Sell_Paid");
-        }else{
-        System.out.println("Salah Invoice Type bukan Sell_Paid");
-        }
+        temp.add(item.getId());
+        Invoice bp = new Buy_Paid(temp);
     }
     
-       public void orderSecondItem(Supplier supplier){
-        Item item = new Item(12,"Laptop",10,ItemStatus.Second,1000000,supplier,ItemCategory.Electronics);
-        db.addItem(item);
+       public static void orderSecondItem(Item item){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        DatabaseItem.addItem(item);
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-       
         item.setStatus(ItemStatus.Second);
-        Invoice bp = new Buy_Paid(20,item,10);
-        
-        System.out.println("=====Order Second Item=====");
-        item.printData();
-        bp.printData();
-         if(bp instanceof Sell_Paid){
-        System.out.println("Benar Invoice Type adalah Sell_Paid");
-        }else{
-        System.out.println("Salah Invoice Type bukan Sell_Paid");
-        }
+        temp.add(item.getId());
+        Invoice bp = new Buy_Paid(temp);
     }
     
-       public void orderRefurbishedItem(Supplier supplier){
-        Item item = new Item(12,"Laptop",10,ItemStatus.Refurbished,1000000,supplier,ItemCategory.Electronics);
-        db.addItem(item);
+       public static void orderRefurbishedItem(Item item){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        DatabaseItem.addItem(item);
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-      
+        temp.add(item.getId());
         item.setStatus(ItemStatus.Refurbished);
-        Invoice bp = new Buy_Paid(20,item,10);
-        
-        System.out.println("=====Order Refurbished Item=====");
-        item.printData();
-        bp.printData();
-         if(bp instanceof Sell_Paid){
-        System.out.println("Benar Invoice Type adalah Sell_Paid");
-        }else{
-        System.out.println("Salah Invoice Type bukan Sell_Paid");
-        }
- 
+        Invoice bp = new Buy_Paid(temp); 
     }
     
-    public void sellItemPaid(Item item, Customer customer){
-   
+    public static void sellItemPaid(Item item, Customer customer){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        
+        temp.add(item.getId());
         item.setStatus(ItemStatus.Sold);
-        Invoice bp = new Sell_Paid(20,item,10,customer);
+        Invoice bp = new Sell_Paid(temp);
         
         System.out.println("=====Sell Item Paid=====");
         item.printData();
-        bp.printData();
         
     }
     
-       public void sellItemUnpaid(Item item, Customer customer){
-           
+       public static void sellItemUnpaid(Item item, Customer customer){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        
+        temp.add(item.getId());
         item.setStatus(ItemStatus.Sold);
-        Invoice bp = new Sell_Unpaid(20,item,10, customer);
+        Invoice bp = new Sell_Unpaid(temp);
         
         System.out.println("=====Sell Item Unpaid=====");
         item.printData();
-        bp.printData();
         
     }
     
-       public void sellItemInstallment(Item item, Customer customer){
-        
+       public static void sellItemInstallment(Item item, Customer customer){
+        ArrayList<Integer> temp = new ArrayList<Integer>();
         String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-       
+        temp.add(item.getId());
         item.setStatus(ItemStatus.Sold);
-        Invoice bp = new Sell_Installment(20,item,10,10,customer);
+        Invoice bp = new Sell_Installment(temp);
 
         System.out.println("=====Sell Item Installment=====");
         item.printData();
-        bp.printData();
     }
     
+    public boolean finishTransaction(Invoice invoice){
+        for(Invoice barang : DatabaseInvoice.getInvoiceDatabase()){
+            if(barang.equals(invoice)){
+                invoice.setIsActive(false);
+                System.out.println(invoice.getIsActive());
+            }
+        }
+        return false;
+    }
+    
+    public boolean cancelTransaction(Invoice invoice){
+        for(Invoice barang : DatabaseInvoice.getInvoiceDatabase()){
+            if(barang.equals(invoice)){
+                DatabaseInvoice.getInvoiceDatabase().remove(invoice);
+                return true;
+            }
+        }
+        return false;
+    }
 }

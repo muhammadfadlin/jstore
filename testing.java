@@ -18,5 +18,6 @@ public class testing
        SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
        System.out.printf("Birth date: "+ sdf.format(customer1.getBirthDate().getTime()));
        System.out.println("Birth date: "+ sdf.format(customer1.getBirthDate().getTime()));
+       System.out.println(ItemStatus.New.toString());
     }
 }

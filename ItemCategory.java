@@ -10,6 +10,6 @@ public enum ItemCategory
     Electronics,Furniture,Stationery;
     
     public String toString(){
-       return "";
+        return name();
     }
 }

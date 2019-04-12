@@ -10,7 +10,7 @@ public enum InvoiceStatus
     Paid,Unpaid,Installment;
     
     public String toString(){
-        return "";
+        return name();
     }
     
 }

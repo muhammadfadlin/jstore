@@ -1,4 +1,5 @@
 import java.util.Calendar;
+import java.util.ArrayList;
 /**
  * Write a description of class Sell_Unpaid here.
  *
@@ -8,15 +9,16 @@ import java.util.Calendar;
 public class Sell_Unpaid extends Invoice
 {
     // instance variables - replace the example below with your own
-    private InvoiceType INVOICE_TYPE = InvoiceType.Sell;
-    private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
+    private static InvoiceType INVOICE_TYPE = InvoiceType.Sell;
+    private static InvoiceStatus INVOICE_STATUS = InvoiceStatus.Unpaid;
     private Calendar dueDate;
     private Customer customer;
+    private boolean isActive = true;
 
 
-    public Sell_Unpaid(int id,Item item, int totalItem, Customer customer)
+    public Sell_Unpaid(ArrayList<Integer> item)
     {
-        super(id,item,totalItem);
+        super(item);
 	dueDate.add(Calendar.DAY_OF_MONTH,1);
     }
 
@@ -43,31 +45,23 @@ public class Sell_Unpaid extends Invoice
     public void setDueDate(Calendar dueDate){
         this.dueDate = dueDate;
     }
-    
-    public void printData(){
-        System.out.println("=====INVOICE=====");
-        System.out.println("ID:"+ getId());
-        System.out.println("Date:"+ getDate());
-        System.out.println("Item:"+ getItem().getName());
-        System.out.println("Total Item:"+ getTotalItem());
-        System.out.println("Total Price:"+ getTotalPrice());
-        System.out.println("Status:"+ getInvoiceStatus().name());
-        System.out.println("Due Date :"+ getDueDate());
-    }
-    
+
     public String toString(){
-        return "ID = \n" + + this.getId() + "\n" + 
-    "Item = " + this.getItem().getName() + "\n" +
-    "Amount = "  + this.getTotalItem() + "\n" +
-    "Buy date = " + this.getDate() + "\n" +
-    "Price = " + this.getItem().getPrice() + "\n" +
-    "Price total = " + this.getTotalPrice() + "\n" +
-    "Supplier ID = " + this.getItem().getId() + "\n" +
-    "Supplier name = " + this.getItem().getName() + "\n" +
-    "Customer ID = " + this.customer.getId() + "\n" +
-    "Customer name = " + this.customer.getName() + "\n" +
-    "Status = " + InvoiceStatus.Unpaid + "\n" + 
-    "Due Date= " + getDueDate() + "\n" +
-    "Sell Success\n";
+        String s = "";
+      for(Item item : DatabaseItem.getItemDatabase()){
+        s=s.concat("ID = " + getId() + "\n" +
+        "Name = " + item.getName() + "\n" +
+        "Buy date= " + getDate() + "\n" +
+        "Price = " + item.getPrice() + "\n" +
+        "Price Total = " + getTotalPrice() + "\n" +
+        "Supplier ID = " + item.getSupplier().getId() + "\n" +
+        "Supplier Name = " + item.getSupplier().getName() + "\n" +
+        "Customer ID = " + customer.getId() + "\n" +
+        "Customer Name = " + customer.getName() + "\n" +
+        "Status = " + INVOICE_STATUS + "\n" +
+        "Due Date = " + getDueDate() + "\n" +
+        "If payment is not received by dueDate, transaction will be cancelled" + "\n");
+        }
+    return s;
     }
 }

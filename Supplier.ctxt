@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Supplier
 comment0.text=\r\n\ Sebuah\ class\ untuk\ memasukkan\ data\ supplier.\r\n\r\n\ @author\ Muhammad\ Fadli\r\n\ @version\ 28/02/2019\r\n\ @since\ 28/02/2019\r\n
-comment1.params=id\ name\ email\ phoneNumber\ location
-comment1.target=Supplier(int,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ Location)
+comment1.params=name\ email\ phoneNumber\ location
+comment1.target=Supplier(java.lang.String,\ java.lang.String,\ java.lang.String,\ Location)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Supplier\r\n\ @param\ id\ is\ the\ first\ paramter\ to\ Supplier\ method\r\n\ @param\ name\ is\ the\ second\ paramter\ to\ Supplier\ method\r\n\ @param\ email\ is\ the\ third\ paramter\ to\ Supplier\ method\r\n\ @param\ phoneNumber\ is\ the\ fourth\ paramter\ to\ Supplier\ method\r\n\ @param\ location\ is\ the\ fifth\ paramter\ to\ Supplier\ method\r\n
 comment10.params=phoneNumber
 comment10.target=void\ setPhoneNumber(java.lang.String)

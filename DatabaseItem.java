@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 
 /**
  * Sebuah class sebagai tempat penyimpanan data-data semua item
@@ -10,17 +10,29 @@
 public class DatabaseItem
 {
     // instance variables - replace the example below with your own
-    private Item[] listItem;
-    public static Item itemDB;
+    private static ArrayList<Item> ITEM_DATABASE = new ArrayList<Item>();
+    private static int LAST_ITEM_ID=0;
 
      /**
      * menambah item
      * @return nilai false
      * @param nilai item
      */
+    
+    public static ArrayList<Item> getItemDatabase(){
+        return ITEM_DATABASE;
+    }
+    
     public static boolean addItem(Item item)
     {
-        itemDB = item;
+        for(Item barang : ITEM_DATABASE){
+            if((item.getName()!=barang.getName())&&
+            (item.getStatus()!=barang.getStatus())&&
+            (item.getSupplier()!=barang.getSupplier())){
+                ITEM_DATABASE.add(item);
+                return true;
+        }
+    }
         return false;
     }
     
@@ -29,25 +41,61 @@ public class DatabaseItem
      * @return nilai false
      * @param nilai item
      */
+    
+    public static Item getItemFromID(int id)
+    {     
+        for(Item item : ITEM_DATABASE){
+            if(item.getId()==id){
+                return item;
+            }
+        }
+        return null;
+    }
+    
+    public static ArrayList<Item> getItemFromSupplier(Supplier supplier)
+    {     
+        ArrayList<Item> temparr = null;
+        for(Item item : ITEM_DATABASE){
+            if(item.getSupplier()==supplier){
+                temparr.add(item);
+                return temparr;
+            }
+        }
+            return null;
+    }
+    
+    public static ArrayList<Item> getItemFromCategory(ItemCategory category)
+    {     
+        ArrayList<Item> temparr = null;
+        for(Item item : ITEM_DATABASE){
+            if(item.getCategory()==category){
+                temparr.add(item);
+                return temparr;
+            }
+        }
+            return null;
+    }
+    
+    public static ArrayList<Item> getItemFromStatus(ItemStatus status)
+    {     
+        ArrayList<Item> temparr = null;
+        for(Item item : ITEM_DATABASE){
+            if(item.getStatus()==status){
+                temparr.add(item);
+                return temparr;
+            }
+        }
+            return null;
+    }
+    
     public static boolean removeItem(Item item)
-    {     
-        itemDB = null;
-        return false;
+    {   
+          for(Item barang : ITEM_DATABASE){
+            if(barang.getName()==item.getName()){
+                ITEM_DATABASE.remove(item);
+                return true;
+            }
+        }
+            return false;
     }
-    
-    public Item getItem()
-    {     
-        return itemDB;
-    }
-    
-     /**
-     * mengembalikan list database
-     * @return nilai listItem
-     */
-    public Item[] getItemDatabase()
-    {     
-        return listItem;
-    }
-    
-    
 }

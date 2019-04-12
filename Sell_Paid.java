@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class Sell_Paid here.
  *
@@ -11,13 +11,14 @@ public class Sell_Paid extends Invoice
     private InvoiceType INVOICE_TYPE = InvoiceType.Sell;
     private InvoiceStatus INVOICE_STATUS = InvoiceStatus.Paid;
     private Customer customer;
+    private boolean isActive = false;
 
     /**
      * Constructor for objects of class Sell_Paid
      */
-    public Sell_Paid(int id, Item item,int totalItem, Customer customer)
+    public Sell_Paid(ArrayList<Integer> item)
     {
-        super(id,item,totalItem);
+        super(item);
     }
 
      public InvoiceStatus getInvoiceStatus(){
@@ -36,28 +37,21 @@ public class Sell_Paid extends Invoice
         this.customer=customer;
     }
     
-    public void printData(){
-        System.out.println("=====INVOICE=====");
-        System.out.println("ID:"+ getId());
-        System.out.println("Date:"+ getDate());
-        System.out.println("Item:"+ getItem().getName());
-        System.out.println("Total Item:"+ getTotalItem());
-        System.out.println("Total Price:"+ getTotalPrice());
-        System.out.println("Status:"+ getInvoiceStatus().name());
-    }
-    
     public String toString(){
-        return "ID = \n" + + this.getId() + "\n" + 
-    "Item = " + this.getItem().getName() + "\n" +
-    "Amount = "  + this.getTotalItem() + "\n" +
-    "Buy date = " + this.getDate() + "\n" +
-    "Price = " + this.getItem().getPrice() + "\n" +
-    "Price total = " + this.getTotalPrice() + "\n" +
-    "Supplier ID = " + this.getItem().getId() + "\n" +
-    "Supplier name = " + this.getItem().getName() + "\n" +
-    "Customer ID = " + this.customer.getId() + "\n" +
-    "Customer name = " + this.customer.getName() + "\n" +
-    "Status = " + InvoiceStatus.Paid + "\n" + 
-    "Sell Success\n";
+        String s = "";
+      for(Item item : DatabaseItem.getItemDatabase()){
+        s=s.concat("ID = " + getId() + "\n" +
+        "Name = " + item.getName() + "\n" +
+        "Buy date= " + getDate() + "\n" +
+        "Price = " + item.getPrice() + "\n" +
+        "Price Total = " + getTotalPrice() + "\n" +
+        "Supplier ID = " + item.getSupplier().getId() + "\n" +
+        "Supplier Name = " + item.getSupplier().getName() + "\n" +
+        "Customer ID = " + customer.getId() + "\n" +
+        "Customer Name = " + customer.getName() + "\n" +
+        "Status = " + INVOICE_STATUS + "\n" +
+        "Sell Success" + "\n");
+        }
+    return s;
     }
 }

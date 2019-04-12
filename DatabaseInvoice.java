@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class DatabaseInvoice here.
  *
@@ -8,16 +8,24 @@
 public class DatabaseInvoice
 {
     // instance variables - replace the example below with your own
-    private Invoice[] listInvoice;
-    private Invoice invoice;
+    private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
+    private static int LAST_INVOICE_ID;
 
     /**
      * Constructor for objects of class DatabaseInvoice
      */
+    public static ArrayList<Invoice> getInvoiceDatabase(){
+        return INVOICE_DATABASE;
+    }
     
-    public boolean addInvoice(Invoice invoice)
+    public static int getLastInvoiceID(){
+        return LAST_INVOICE_ID;
+    }
+    
+    public static boolean addInvoice(Invoice invoice)
     {
-         return false;
+        INVOICE_DATABASE.add(invoice); 
+        return true;
     }
 
     /**
@@ -27,29 +35,45 @@ public class DatabaseInvoice
      * @return    the sum of x and y
      */
   
-     public void removeInvoice(Invoice invoice)
-    {     
+     public static boolean removeInvoice(int id)
+    {   
+        for(Invoice invoice : INVOICE_DATABASE){
+            if(invoice.getId()==id){
+                if(invoice.getIsActive()==true){
+                    invoice.setIsActive(false);
+                }
+                INVOICE_DATABASE.remove(invoice);
+            }
+        }
+        return false;
     }
     
       /**
      * mengembalikan nilai supplier
      * @return nilai supplier
      */
-    public Invoice getInvoice()
+    public static Invoice getInvoice(int id)
     {     
-        return invoice;
+        for(Invoice invoice : INVOICE_DATABASE){
+            if(invoice.getId()==id){
+                return invoice;
+            }
+        }
+        return null;
     }
+    
     
     /**
      * mengembalikan nilai listsupplier
      * @return nilai listSupplier
      */
-    public Invoice[] getListInvoice()
+    public static Invoice getActiveOrder(Customer customer)
     {     
-        return listInvoice;
-    }
-    
-        public void printData()
-    {
+        for(Invoice invoice : INVOICE_DATABASE){
+            if(invoice.getInvoiceStatus()==InvoiceStatus.Unpaid){
+                return invoice;
+            }
+        }
+        return null;
     }
 }

@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Item
 comment0.text=\r\n\ Sebuah\ class\ untuk\ memasukan\ item\ baru\r\n\r\n\ @author\ Muhammad\ Fadli\r\n\ @version\ 28/02/2019\r\n\ @since\ 28/02/2019\r\n
-comment1.params=id\ name\ stock\ status\ price\ supplier\ category
-comment1.target=Item(int,\ java.lang.String,\ int,\ ItemStatus,\ int,\ Supplier,\ ItemCategory)
+comment1.params=name\ stock\ status\ price\ supplier\ category
+comment1.target=Item(java.lang.String,\ int,\ ItemStatus,\ int,\ Supplier,\ ItemCategory)
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Item\r\n\ @param\ id\ is\ the\ first\ paramter\ to\ Item\ method\r\n\ @param\ name\ is\ the\ second\ paramter\ to\ Item\ method\r\n\ @param\ stock\ is\ the\ third\ paramter\ to\ Item\ method\r\n\ @param\ price\ is\ the\ fourth\ paramter\ to\ Item\ method\r\n\ @param\ category\ is\ the\ fifth\ paramter\ to\ Item\ method\r\n\ @param\ supplier\ is\ the\ sixth\ paramter\ to\ Item\ method\r\n
 comment10.params=name
 comment10.target=void\ setName(java.lang.String)
@@ -24,6 +24,8 @@ comment15.text=\r\n\ melakukan\ set\ nilai\ baru\ pada\ supplier\r\n\ @param\ ni
 comment16.params=
 comment16.target=void\ printData()
 comment16.text=\r\n\ melakukan\ print\ nilai\ nama\r\n\ \r\n
+comment17.params=
+comment17.target=java.lang.String\ toString()
 comment2.params=
 comment2.target=int\ getId()
 comment2.text=\r\n\ mengembalikan\ id\r\n\ @return\ nilai\ id\ \r\n
@@ -47,4 +49,4 @@ comment8.text=\r\n\ mengembalikan\ supplier\r\n\ @return\ nilai\ supplier\r\n
 comment9.params=id
 comment9.target=void\ setId(int)
 comment9.text=\r\n\ melakukan\ set\ nilai\ baru\ pada\ id\r\n\ @param\ nilai\ id\ mengganti\ id\r\n
-numComments=17
+numComments=18

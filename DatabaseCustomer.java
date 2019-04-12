@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 /**
  * Write a description of class DatabaseCustomer here.
@@ -7,21 +8,25 @@
  */
 public class DatabaseCustomer
 {
-    private Customer[] listCustomer;
-    private Customer customer;
-
-    /**
-     * Constructor for objects of class DatabaseInvoice
-     */
-    public DatabaseCustomer(Customer[] listCustomer, Customer customer)
-    {
+    private static ArrayList<Customer> CUSTOMER_DATABASE= new ArrayList<Customer>();;
+    private static int LAST_CUSTOMER_ID=0;
     
+    
+    public static ArrayList<Customer> getCustomerDatabase(){
+        return CUSTOMER_DATABASE;
     }
     
-    
-    public boolean addCustomer(Customer customer)
+    public static boolean addCustomer(Customer customer)
     {
-         return false;
+         for(Customer orang : CUSTOMER_DATABASE){
+            if((customer.getName()!=orang.getName())&&
+            (customer.getEmail()!=orang.getEmail())){
+                CUSTOMER_DATABASE.add(customer);
+                LAST_CUSTOMER_ID = customer.getId();
+                return true;
+            }
+        }
+            return false;
     }
 
     /**
@@ -31,29 +36,28 @@ public class DatabaseCustomer
      * @return    the sum of x and y
      */
   
-     public void removeCustomer(Customer customer)
-    {     
+     public boolean removeCustomer(int id)
+    {  
+         for(Customer customer : CUSTOMER_DATABASE){
+            if(customer.getId()==id){
+                CUSTOMER_DATABASE.remove(customer);
+            }
+        }
+        return false;
     }
     
       /**
      * mengembalikan nilai supplier
      * @return nilai supplier
      */
-    public Customer getCustomer()
+    public static Customer getCustomer(int id)
     {     
-        return customer;
-    }
-    
-    /**
-     * mengembalikan nilai listsupplier
-     * @return nilai listSupplier
-     */
-    public Customer[] getListCustomer()
-    {     
-        return listCustomer;
-    }
-    
-        public void printData()
-    {
+        for(Customer customer : CUSTOMER_DATABASE){
+            if(customer.getId()==id){
+                return customer;
+            }
+        }
+        return null;
+      
     }
 }

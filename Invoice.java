@@ -2,6 +2,8 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
 /**
  * Sebuah class dengan informasi mengenai semua invoice ketika transaksi dilakukan
  *
@@ -13,12 +15,11 @@ public abstract class Invoice
 {
     // instance variables - replace the example below with your own
     private int id;
-    private Item item;
+    private ArrayList<Integer> item;
     private Calendar date = new GregorianCalendar().getInstance();
     private int totalPrice;
-    private int totalItem;
-    private InvoiceStatus status;
-    private InvoiceType type;
+    private boolean isActive;
+    private Customer customer;
 
     /**
      * Constructor for objects of class Invoice
@@ -27,12 +28,11 @@ public abstract class Invoice
      * @param date is the third paramter to Invoice method
      * @param totalPrice is the fourth paramter to Invoice method
      */
-    public Invoice(int id, Item item,int totalItem)
+    public Invoice(ArrayList<Integer> item)
     {
-        this.id=id;
-        this.item=item;
-        this.totalItem=totalItem;
-        setTotalPrice(totalItem * item.getPrice());      
+        item = new ArrayList<Integer>(); 
+        id = DatabaseInvoice.getLastInvoiceID()+1;
+       // setTotalPrice(totalItem * item.getPrice());      
     }
 
       /**
@@ -49,7 +49,7 @@ public abstract class Invoice
      * mengembalikan nilai item
      * @return nilai item
      */
-    public Item getItem()
+    public ArrayList<Integer> getItem()
     {
         return item;
     }
@@ -70,23 +70,19 @@ public abstract class Invoice
     public int getTotalPrice()
     {
         return totalPrice;
+    }  
+    
+    public abstract InvoiceStatus getInvoiceStatus();
+    public abstract InvoiceType getInvoiceType();
+  
+    
+    public boolean getIsActive(){
+        return isActive;
     }
     
-     public int getTotalItem()
-    {
-        return totalItem;
+    public Customer getCustomer(){
+        return customer;
     }
-    
-     public InvoiceStatus getInvoiceStatus()
-    {
-        return status;
-    }
-    
-    public InvoiceType getInvoiceType()
-    {
-        return type;
-    }
-    
     
     /**
      * melakukan set nilai baru pada ID
@@ -97,12 +93,11 @@ public abstract class Invoice
         this.id=id;
     }
     
-    
     /**
      * melakukan set nilai baru pada item
      * @param nilai item mengganti item
      */
-    public void setItem(Item item)
+    public void setItem(ArrayList<Integer> item)
     {
         this.item=item;
     }
@@ -122,28 +117,21 @@ public abstract class Invoice
      */
     public void setTotalPrice(int totalPrice)
     {
-        this.totalPrice=totalPrice;
-    }
-    
-    public void setTotalItem(int totalItem)
-    {
-        this.totalItem=totalItem;
+        for(Item item : DatabaseItem.getItemDatabase()){
+        this.totalPrice+=item.getPrice();
+        }
     }
     
     public void setInvoiceStatus(InvoiceStatus status)
     {
-        this.status=status;
+        status=status;
     }
     
-    public String toString(){
-        return "";
+    public void setIsActive(boolean isActive)
+    {
+        this.isActive=isActive;
     }
     
-       /**
-     * melakukan print nilai totalharga
-     * 
-     */
-    
-    public abstract void printData();
+    public abstract String toString();  
      
 }

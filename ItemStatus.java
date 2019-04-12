@@ -10,6 +10,6 @@ public enum ItemStatus
     New,Second,Refurbished,Sold;
     
     public String toString(){
-        return "";
+        return name();
     }
 }

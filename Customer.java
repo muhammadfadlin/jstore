@@ -15,11 +15,11 @@ public class Customer
     
     public Customer (String name, String email, String username, String password, int id, Calendar birthDate)
     {
+        id = DatabaseInvoice.getLastInvoiceID()+1;
         this.name = name;
         this.email = email;
         this.username = username;
         this.password = password;
-        this.id = id;
         birthDate = new GregorianCalendar();
     }
 
