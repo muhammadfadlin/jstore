@@ -32,7 +32,9 @@ public abstract class Invoice
     {
         item = new ArrayList<Integer>(); 
         id = DatabaseInvoice.getLastInvoiceID()+1;
-       // setTotalPrice(totalItem * item.getPrice());      
+        for(Item barang : DatabaseItem.getItemDatabase()){
+        totalPrice+=barang.getPrice();
+        }    
     }
 
       /**
@@ -117,14 +119,13 @@ public abstract class Invoice
      */
     public void setTotalPrice(int totalPrice)
     {
-        for(Item item : DatabaseItem.getItemDatabase()){
-        this.totalPrice+=item.getPrice();
-        }
+        this.totalPrice=totalPrice;
     }
     
     public void setInvoiceStatus(InvoiceStatus status)
     {
-        status=status;
+        InvoiceStatus kondisi = getInvoiceStatus();
+        kondisi = status;
     }
     
     public void setIsActive(boolean isActive)
