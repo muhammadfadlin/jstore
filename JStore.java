@@ -2,6 +2,7 @@ import java.util.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  * Sebuah class sebagai fungsi main dari semua class
@@ -28,13 +29,14 @@ public class JStore
         //supp1.setName("Khairi");
        // supp1.printData();
         
-     //  Customer customer1 = new Customer("Fadli","testing","testing","testing",10, 1998,10,21);
-      // SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
-      // System.out.printf("Birth date: "+ sdf.format(customer1.getBirthDate().getTime()));
-       //System.out.println("Birth date: "+ sdf.format(customer1.getBirthDate().getTime()));
-       //System.out.println(ItemStatus.New.toString());
-       Location loc1 = new Location("Kabanjahe","Sumut","testing");
-       String lokasi = loc1.toString();
-       System.out.println(lokasi);
+      // Customer customer1 = new Customer("Fadli","testing","testing","testing", 1998,10,21);
+     // SimpleDateFormat sdf = new SimpleDateFormat("yyyy MMM dd");
+      //System.out.printf("Birth date: "+ sdf.format(customer1.getBirthDate().getTime()));
+      // System.out.println("Birth date: "+ sdf.format(customer1.getBirthDate().getTime()));
+      // System.out.println(ItemStatus.New.toString());
+      // Location loc1 = new Location("Kabanjahe","Sumut","testing");
+      // String lokasi = loc1.toString();
+      // System.out.println(lokasi);
+      
     }
 }

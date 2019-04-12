@@ -13,7 +13,7 @@ public class Customer
     private int id;
     private Calendar birthDate;
     
-    public Customer (String name, String email, String username, String password, int id, Calendar birthDate)
+    public Customer (String name, String email, String username, String password, Calendar birthDate)
     {
         id = DatabaseInvoice.getLastInvoiceID()+1;
         this.name = name;
@@ -23,7 +23,7 @@ public class Customer
         birthDate = new GregorianCalendar();
     }
 
-    public Customer (String name, String email, String username, String password, int id, int year, int month, int dayOfMonth)
+    public Customer (String name, String email, String username, String password, int year, int month, int dayOfMonth)
     {
         this.name = name;
         this.email = email;
